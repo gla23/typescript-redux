@@ -1,24 +1,18 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { useDispatch } from "react-redux";
+import "./App.css";
+import { increment, square, useCount } from "./ducks/counter";
 
 function App() {
+  const count = useCount();
+  const dispatch = useDispatch();
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      React Redux Typescript
+      <h2>{count}</h2>
+      <div />
+      <button onClick={() => dispatch(increment())}>Increment</button>
+      <button onClick={() => dispatch(square())}>Square</button>
     </div>
   );
 }
